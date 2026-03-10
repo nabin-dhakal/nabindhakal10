@@ -80,6 +80,7 @@
       <a href="#hero" class="text-2xl font-bold text-primary nav-link"><span class="text-gray-800">Nabin </span>Dhakal</a>
       <nav class="hidden md:flex space-x-8 font-medium">
         <a href="#about" class="nav-link text-gray-700 hover:text-primary transition">About</a>
+        <a href="#experience" class="nav-link text-gray-700 hover:text-primary transition">Experience</a>
         <a href="#projects" class="nav-link text-gray-700 hover:text-primary transition">Projects</a>
         <a href="#skills" class="nav-link text-gray-700 hover:text-primary transition">Skills</a>
         <a href="#contact" class="nav-link text-gray-700 hover:text-primary transition">Contact</a>
@@ -90,6 +91,7 @@
     </div>
     <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-4 py-3 flex flex-col space-y-3 text-base font-medium shadow-md">
       <a href="#about" class="nav-link py-1 hover:text-primary transition">About</a>
+      <a href="#experience" class="nav-link py-1 hover:text-primary transition">Experience</a>
       <a href="#projects" class="nav-link py-1 hover:text-primary transition">Projects</a>
       <a href="#skills" class="nav-link py-1 hover:text-primary transition">Skills</a>
       <a href="#contact" class="nav-link py-1 hover:text-primary transition">Contact</a>
@@ -150,6 +152,15 @@
             <span class="bg-indigo-50 text-indigo-800 px-4 py-2 rounded-full text-sm font-medium">open source contributor</span>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section id="experience" class="py-20 scroll-mt-20">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold inline-block border-b-4 border-primary pb-2 px-4">Experience</h2>
+        <p class="text-gray-600 mt-3">Professional journey & entrepreneurship</p>
+      </div>
+      <div id="experience-container" class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
       </div>
     </section>
 
@@ -342,7 +353,7 @@
   </main>
 
   <footer class="bg-white/70 backdrop-blur-md border-t border-gray-200 py-6 text-center text-gray-500 text-sm">
-    <p>© 2025 Nabin Dhakal</p>
+    <p>© 2026 Nabin Dhakal</p>
     <p class="mt-1"><a href="#hero" class="nav-link text-primary hover:underline">Back to top <i class="fas fa-arrow-up"></i></a></p>
   </footer>
 
@@ -366,6 +377,41 @@
         });
       });
 
+      const experiences = [
+  {
+    icon: 'fa-briefcase',
+    title: 'Backend & DevOps Engineer',
+    company: 'Intelzy Softwares',
+    dateRange: 'Sept 2025 – Present · 6+ months',
+    description: 'Started as a 3‑month internship, now working full‑time on backend development and DevOps – CI/CD pipelines, cloud deployments, and scalable system design.'
+  },
+  {
+    icon: 'fa-rocket',
+    title: 'Co-founder & Developer',
+    company: 'StaffSync',
+    dateRange: '2026 – Present',
+    description: 'Building and selling Staffsync, a comprehensive HR management suite with role-based dashboards, attendance tracking, leave management, payroll, and more – handling full-stack development, infrastructure, and customer deployments. Actively generating revenue.'
+  }
+];
+
+      const container = document.getElementById('experience-container');
+      if (container) {
+        container.innerHTML = experiences.map(exp => `
+          <div class="bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-gray-100">
+            <div class="flex flex-col md:flex-row md:items-start gap-4">
+              <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center text-primary text-2xl flex-shrink-0">
+                <i class="fas ${exp.icon}"></i>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl font-bold">${exp.title}</h3>
+                <p class="text-primary font-semibold">${exp.company}</p>
+                <p class="text-gray-500 text-sm mb-2">${exp.dateRange}</p>
+                <p class="text-gray-600">${exp.description}</p>
+              </div>
+            </div>
+          </div>
+        `).join('');
+      }
     })();
   </script>
 </body>
